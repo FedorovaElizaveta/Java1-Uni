@@ -13,12 +13,10 @@ public class Auth {
         System.out.println("Enter password: ");
         String password = sc.nextLine();
 
-        int attemptsLeft = 3;
+        int attemptsLeft = 2;
 
         if(!login.equals(LOGIN) || !password.equals(PASSWORD)) {
-            for (int i = 0; i < attemptsLeft; i++) {          
-                attemptsLeft--;
-
+            for (int i = 0; i <= attemptsLeft; i++) {      
                 System.out.println("Incorrect login or password.");
                 System.out.println("Attempts left: " + attemptsLeft);
 
@@ -27,10 +25,16 @@ public class Auth {
 
                 System.out.println("Enter password: ");
                 password = sc.nextLine();
+
+                if(login.equals(LOGIN) && password.equals(PASSWORD)){
+                    break;
+                }
+
+                attemptsLeft--;
             }
         }
 
-        if(attemptsLeft == 1 ){
+        if(attemptsLeft == 0 ){
             System.out.println("Attempts left: 0");
             System.out.println("Access blocked.");
             sc.close();
