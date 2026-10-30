@@ -53,25 +53,9 @@ public class Auth {
             roleNum = sc.nextInt();
         }
 
-        String accessLevel = sc.nextLine(); 
+        String[] accessLevel = {"Administrator", "Manager", "User"};
 
-        switch (roleNum) {
-            case 1:
-                accessLevel = "Administrator";
-                break;
-            case 2:
-                accessLevel = "Manager";
-                break;
-            case 3:
-                accessLevel = "User";
-                break;
-        
-            default:
-                System.out.println("Invalid role number.");
-                break;
-        }
-
-        System.out.println("Access level: " + accessLevel);
+        System.out.println("Access level: " + accessLevel[roleNum-1]);
         sc.close();
     }
 
